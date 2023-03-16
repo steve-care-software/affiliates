@@ -7,5 +7,5 @@ import (
 
 // Application represents the calculation
 type Application interface {
-	Execute(hash hash.Hash, amount uint) (calculations.Calculations, error)
+	Execute(affiliateHash hash.Hash, genesisHash hash.Hash, amount uint) (calculations.Calculations, error)
 }
