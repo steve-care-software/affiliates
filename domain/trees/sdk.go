@@ -2,6 +2,18 @@ package trees
 
 import "github.com/steve-care-software/libs/cryptography/hash"
 
+// NewBuilder creates a new builder instance
+func NewBuilder() Builder {
+	hashAdapter := hash.NewAdapter()
+	return createBuilder(hashAdapter)
+}
+
+// NewTreeBuilder creates a new tree builder
+func NewTreeBuilder() TreeBuilder {
+	hashAdapter := hash.NewAdapter()
+	return createTreeBuilder(hashAdapter)
+}
+
 // Builder represents the trees builder
 type Builder interface {
 	Create() Builder
