@@ -7,6 +7,15 @@ import (
 	"github.com/steve-care-software/libs/cryptography/hash"
 )
 
+// Builder represents a genesis builder
+type Builder interface {
+	Create() Builder
+	WithParent(parent fungible_unit_genesis.Genesis) Builder
+	WithShareHoldersPercent(shareHoldersPercent float64) Builder
+	WithLevel(level levels.Level) Builder
+	Now() (Genesis, error)
+}
+
 // Genesis represents a genesis
 type Genesis interface {
 	Hash() hash.Hash
