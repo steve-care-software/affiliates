@@ -40,7 +40,10 @@ type RepositoryBuilder interface {
 
 // Repository represents an afiliate repository
 type Repository interface {
+	List() ([]hash.Hash, error)
+	ListByParent(parent hash.Hash) ([]hash.Hash, error)
 	Retrieve(hash hash.Hash) (Affiliate, error)
+	RetrieveList(hashes []hash.Hash) ([]Affiliate, error)
 }
 
 // ServiceBuilder represents a service builder

@@ -8,4 +8,5 @@ import (
 // Application represents the tree application
 type Application interface {
 	Retrieve(hash hash.Hash) (trees.Tree, error)
+	RetrieveList(hashes []hash.Hash) (trees.Trees, error)
 }

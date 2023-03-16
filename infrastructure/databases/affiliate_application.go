@@ -33,6 +33,16 @@ func createAffiliateApplication(
 	return &out
 }
 
+// List returns the list of affiliate hashes that have no parent
+func (app *affiliateApplication) List() ([]hash.Hash, error) {
+	return nil, nil
+}
+
+// ListByParent returns the list of affiliate hashes by parent hash
+func (app *affiliateApplication) ListByParent(parent hash.Hash) ([]hash.Hash, error) {
+	return nil, nil
+}
+
 // Retrieve retrieves an affiliate by hash
 func (app *affiliateApplication) Retrieve(hash hash.Hash) (affiliates.Affiliate, error) {
 	pContext, err := app.databaseApp.Open(app.dbName)
@@ -47,6 +57,11 @@ func (app *affiliateApplication) Retrieve(hash hash.Hash) (affiliates.Affiliate,
 	}
 
 	return repository.Retrieve(hash)
+}
+
+// RetrieveList retrieves a list of affiliates by hashes
+func (app *affiliateApplication) RetrieveList(hashes []hash.Hash) ([]affiliates.Affiliate, error) {
+	return nil, nil
 }
 
 // Insert inserts an affiliate
