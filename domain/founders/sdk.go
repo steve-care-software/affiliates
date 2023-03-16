@@ -42,6 +42,7 @@ type RepositoryBuilder interface {
 type Repository interface {
 	List() ([]hash.Hash, error)
 	Retrieve(hash hash.Hash) (Founder, error)
+	RetrieveList(hashes []hash.Hash) (Founders, error)
 }
 
 // ServiceBuilder represents a service builder
