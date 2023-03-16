@@ -2,11 +2,24 @@ package founders
 
 import "github.com/steve-care-software/libs/cryptography/hash"
 
-// Builder represents the founder builder
+// Builder represents the founder's builder
 type Builder interface {
 	Create() Builder
-	WithPubKey(pubKey hash.Hash) Builder
-	WithPower(power uint) Builder
+	WithList(list []Founder) Builder
+	Now() (Founders, error)
+}
+
+// Founders represents the founders
+type Founders interface {
+	Hash() hash.Hash
+	List() []Founder
+}
+
+// FounderBuilder represents the founder builder
+type FounderBuilder interface {
+	Create() FounderBuilder
+	WithPubKey(pubKey hash.Hash) FounderBuilder
+	WithPower(power uint) FounderBuilder
 	Now() (Founder, error)
 }
 
@@ -42,4 +55,5 @@ type ServiceBuilder interface {
 // Service represents a founder service
 type Service interface {
 	Insert(founder Founder) error
+	InsertList(founders Founders) error
 }
