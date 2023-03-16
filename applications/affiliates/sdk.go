@@ -7,6 +7,6 @@ import (
 
 // Application represents an affiliate application
 type Application interface {
-	Insert(afiliate affiliates.Affiliate) error
 	Retrieve(hash hash.Hash) (affiliates.Affiliate, error)
+	Insert(affiliate affiliates.Affiliate) error
 }
