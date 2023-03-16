@@ -9,6 +9,6 @@ import (
 type Application interface {
 	List() ([]hash.Hash, error)
 	Retrieve(hash hash.Hash) (genesis.Genesis, error)
-	New(genesis genesis.Genesis) error
+	Insert(genesis genesis.Genesis) error
 	Delete(hash hash.Hash) error
 }
